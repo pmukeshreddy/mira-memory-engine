@@ -3,7 +3,7 @@
  */
 
 // Use environment variable for production, fallback to relative path for dev (Vite proxy)
-export const API_BASE = import.meta.env.VITE_API_URL || '/api/v1'
+export const API_BASE = 'https://mira-memory-engine.onrender.com/api/v1'
 
 // Types
 export interface Memory {
