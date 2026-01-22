@@ -294,7 +294,4 @@ This project is licensed under the  License - see the [LICENSE](LICENSE) file fo
 - [ChromaDB](https://trychroma.com/) for vector storage
 
 ---
-
-<div align="center">
-  <sub>Built with ❤️ by the Mira Team</sub>
-</div>
+>
