@@ -1,0 +1,553 @@
+============================================================
+Mira Memory Engine - Latency Benchmark
+============================================================
+
+Loading benchmark data...
+2026-01-21 22:07:56 [info     ] loading_dataset                limit=5000 name=squad split=validation
+2026-01-21 22:07:57 [info     ] loading_hf_dataset             config=None dataset=squad_v2
+  Loaded 5000 passages and 5000 queries from SQuAD
+
+Running chunking benchmark...
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.81 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.52 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.49 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.49 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.49 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.49 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.62 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.51 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.48 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.46 operation=chunking
+Chunking:
+  Iterations: 10
+  Min: 0.48ms
+  Max: 0.66ms
+  Mean: 0.53ms
+  Median: 0.51ms
+  P95: 0.60ms
+  P99: 0.65ms
+
+============================================================
+CHUNKING STRATEGY COMPARISON
+============================================================
+
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.47 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.47 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.51 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.47 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.46 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.47 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.48 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sliding_window
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.48 operation=chunking
+  sliding_window       | Chunks:   9 | Avg size:   165 words | Time: 0.50ms
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.35 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.29 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.29 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.33 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.3 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.37 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.31 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.31 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.27 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=sentence
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.29 operation=chunking
+  sentence             | Chunks:   9 | Avg size:   138 words | Time: 0.33ms
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.55 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.51 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.57 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.59 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.52 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.49 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=paragraph
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.5 operation=chunking
+  paragraph            | Chunks:   9 | Avg size:   165 words | Time: 0.55ms
+  Skipping semantic (requires embedding service)
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.28 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.27 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.27 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.27 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.37 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.29 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.29 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.28 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.28 operation=chunking
+2026-01-21 22:07:58 [debug    ] text_chunked                   chunks=9 input_words=1243 strategy=recursive
+2026-01-21 22:07:58 [debug    ] operation_completed            duration_ms=0.26 operation=chunking
+  recursive            | Chunks:   9 | Avg size:   138 words | Time: 0.31ms
+
+  Best for retrieval: sentence or paragraph (preserves semantic units)
+  Best for speed: sliding_window
+  Best for context: recursive (hierarchical)
+
+Running embedding benchmark...
+2026-01-21 22:07:59 [debug    ] embedding_generated            dimensions=1536 text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=608.54 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.07 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.04 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+2026-01-21 22:07:59 [debug    ] embedding_cache_hit            text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_single
+Embedding (single):
+  Iterations: 10
+  Min: 0.06ms
+  Max: 0.09ms
+  Mean: 0.06ms
+  Median: 0.06ms
+  P95: 0.08ms
+  P99: 0.09ms
+
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.06 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.04 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.05 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.04 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.04 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.04 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.03 operation=embedding_batch
+2026-01-21 22:07:59 [info     ] batch_embedding_completed      cached=5 embedded=0 total=5
+2026-01-21 22:07:59 [debug    ] operation_completed            duration_ms=0.04 operation=embedding_batch
+Embedding (batch of 5):
+  Iterations: 10
+  Min: 0.06ms
+  Max: 0.08ms
+  Mean: 0.07ms
+  Median: 0.07ms
+  P95: 0.08ms
+  P99: 0.08ms
+
+Running vector DB benchmark...
+2026-01-21 22:07:59 [info     ] pinecone_initialized           environment=us-east-1 index=mira-memories
+2026-01-21 22:07:59 [info     ] vectordb_service_initialized   provider=pinecone
+2026-01-21 22:08:00 [debug    ] embedding_generated            dimensions=1536 text_preview='The Normans (Norman: Nourmands'
+2026-01-21 22:08:00 [debug    ] operation_completed            duration_ms=382.39 operation=embedding_single
+2026-01-21 22:08:00 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:00 [debug    ] operation_completed            duration_ms=504.11 operation=vectordb_add
+2026-01-21 22:08:00 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:00 [debug    ] operation_completed            duration_ms=230.92 operation=vectordb_add
+2026-01-21 22:08:01 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:01 [debug    ] operation_completed            duration_ms=268.82 operation=vectordb_add
+2026-01-21 22:08:01 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:01 [debug    ] operation_completed            duration_ms=251.44 operation=vectordb_add
+2026-01-21 22:08:01 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:01 [debug    ] operation_completed            duration_ms=282.47 operation=vectordb_add
+2026-01-21 22:08:01 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:01 [debug    ] operation_completed            duration_ms=266.72 operation=vectordb_add
+2026-01-21 22:08:02 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:02 [debug    ] operation_completed            duration_ms=212.27 operation=vectordb_add
+2026-01-21 22:08:02 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:02 [debug    ] operation_completed            duration_ms=225.91 operation=vectordb_add
+2026-01-21 22:08:02 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:02 [debug    ] operation_completed            duration_ms=233.99 operation=vectordb_add
+2026-01-21 22:08:02 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:02 [debug    ] operation_completed            duration_ms=209.97 operation=vectordb_add
+2026-01-21 22:08:02 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:02 [debug    ] operation_completed            duration_ms=212.4 operation=vectordb_add
+2026-01-21 22:08:03 [debug    ] pinecone_vectors_added         count=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=215.93 operation=vectordb_add
+Vector DB Write (5 docs):
+  Iterations: 10
+  Min: 210.03ms
+  Max: 282.66ms
+  Mean: 238.08ms
+  Median: 230.01ms
+  P95: 276.46ms
+  P99: 281.42ms
+
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=33.32 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=0 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=27.16 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=106.18 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=28.0 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=25.61 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=26.87 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=0 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=25.33 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=26.38 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=0 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=24.38 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=25.81 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=26.65 operation=vectordb_query
+2026-01-21 22:08:03 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:03 [debug    ] operation_completed            duration_ms=25.44 operation=vectordb_query
+Vector DB Query (top-5):
+  Iterations: 10
+  Min: 24.43ms
+  Max: 106.23ms
+  Mean: 34.11ms
+  Median: 26.15ms
+  P95: 71.05ms
+  P99: 99.19ms
+
+2026-01-21 22:08:03 [info     ] pinecone_index_cleared
+2026-01-21 22:08:03 [info     ] pinecone_connection_closed
+Running LLM benchmark...
+2026-01-21 22:08:06 [info     ] llm_response_generated         input_tokens=508 output_tokens=42 query_preview='In what country is Normandy located?' response_length=161
+2026-01-21 22:08:06 [debug    ] operation_completed            duration_ms=2774.83 operation=llm_generate
+2026-01-21 22:08:08 [info     ] llm_response_generated         input_tokens=508 output_tokens=53 query_preview='In what country is Normandy located?' response_length=196
+2026-01-21 22:08:08 [debug    ] operation_completed            duration_ms=2391.72 operation=llm_generate
+2026-01-21 22:08:12 [info     ] llm_response_generated         input_tokens=508 output_tokens=97 query_preview='In what country is Normandy located?' response_length=397
+2026-01-21 22:08:12 [debug    ] operation_completed            duration_ms=3345.7 operation=llm_generate
+2026-01-21 22:08:14 [info     ] llm_response_generated         input_tokens=508 output_tokens=53 query_preview='In what country is Normandy located?' response_length=196
+2026-01-21 22:08:14 [debug    ] operation_completed            duration_ms=2435.31 operation=llm_generate
+2026-01-21 22:08:18 [info     ] llm_response_generated         input_tokens=508 output_tokens=100 query_preview='In what country is Normandy located?' response_length=428
+2026-01-21 22:08:18 [debug    ] operation_completed            duration_ms=3691.25 operation=llm_generate
+2026-01-21 22:08:20 [info     ] llm_response_generated         input_tokens=508 output_tokens=53 query_preview='In what country is Normandy located?' response_length=196
+2026-01-21 22:08:20 [debug    ] operation_completed            duration_ms=2322.95 operation=llm_generate
+2026-01-21 22:08:24 [info     ] llm_response_generated         input_tokens=508 output_tokens=93 query_preview='In what country is Normandy located?' response_length=378
+2026-01-21 22:08:24 [debug    ] operation_completed            duration_ms=3729.39 operation=llm_generate
+LLM Generation:
+  Iterations: 5
+  Min: 2323.03ms
+  Max: 3729.46ms
+  Mean: 3105.02ms
+  Median: 3345.80ms
+  P95: 3721.84ms
+  P99: 3727.94ms
+
+Running full pipeline benchmark...
+2026-01-21 22:08:24 [info     ] pinecone_initialized           environment=us-east-1 index=mira-memories
+2026-01-21 22:08:24 [info     ] vectordb_service_initialized   provider=pinecone
+2026-01-21 22:08:24 [info     ] memory_pipeline_initialized    chunk_size=150 chunk_strategy=sentence
+2026-01-21 22:08:24 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:24 [debug    ] operation_completed            duration_ms=0.82 operation=chunking
+2026-01-21 22:08:24 [debug    ] operation_completed            duration_ms=0.98 operation=ingest_chunking
+2026-01-21 22:08:25 [info     ] batch_embedding_completed      cached=0 embedded=1 total=1
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=744.74 operation=embedding_batch
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=744.88 operation=ingest_embedding
+2026-01-21 22:08:25 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=319.69 operation=vectordb_add
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=319.8 operation=ingest_storage
+2026-01-21 22:08:25 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=1066.46
+2026-01-21 22:08:25 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.11 operation=chunking
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.39 operation=ingest_chunking
+2026-01-21 22:08:25 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.05 operation=embedding_batch
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.11 operation=ingest_embedding
+2026-01-21 22:08:25 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=281.45 operation=vectordb_add
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=281.61 operation=ingest_storage
+2026-01-21 22:08:25 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=282.38
+2026-01-21 22:08:25 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.21 operation=chunking
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.28 operation=ingest_chunking
+2026-01-21 22:08:25 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.07 operation=embedding_batch
+2026-01-21 22:08:25 [debug    ] operation_completed            duration_ms=0.15 operation=ingest_embedding
+2026-01-21 22:08:26 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=156.7 operation=vectordb_add
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=156.83 operation=ingest_storage
+2026-01-21 22:08:26 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=157.47
+2026-01-21 22:08:26 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.21 operation=chunking
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.27 operation=ingest_chunking
+2026-01-21 22:08:26 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.07 operation=embedding_batch
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.16 operation=ingest_embedding
+2026-01-21 22:08:26 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=162.11 operation=vectordb_add
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=162.24 operation=ingest_storage
+2026-01-21 22:08:26 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=162.88
+2026-01-21 22:08:26 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.38 operation=chunking
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.46 operation=ingest_chunking
+2026-01-21 22:08:26 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.08 operation=embedding_batch
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.14 operation=ingest_embedding
+2026-01-21 22:08:26 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=196.53 operation=vectordb_add
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=196.63 operation=ingest_storage
+2026-01-21 22:08:26 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=197.5
+2026-01-21 22:08:26 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.26 operation=chunking
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.33 operation=ingest_chunking
+2026-01-21 22:08:26 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.05 operation=embedding_batch
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.1 operation=ingest_embedding
+2026-01-21 22:08:26 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=190.79 operation=vectordb_add
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=190.9 operation=ingest_storage
+2026-01-21 22:08:26 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=191.52
+2026-01-21 22:08:26 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.16 operation=chunking
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.26 operation=ingest_chunking
+2026-01-21 22:08:26 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.05 operation=embedding_batch
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.1 operation=ingest_embedding
+2026-01-21 22:08:26 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=172.01 operation=vectordb_add
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=172.14 operation=ingest_storage
+2026-01-21 22:08:26 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=172.72
+2026-01-21 22:08:26 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.24 operation=chunking
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.3 operation=ingest_chunking
+2026-01-21 22:08:26 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.07 operation=embedding_batch
+2026-01-21 22:08:26 [debug    ] operation_completed            duration_ms=0.13 operation=ingest_embedding
+2026-01-21 22:08:27 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=203.21 operation=vectordb_add
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=203.4 operation=ingest_storage
+2026-01-21 22:08:27 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=204.12
+2026-01-21 22:08:27 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.39 operation=chunking
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.5 operation=ingest_chunking
+2026-01-21 22:08:27 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.11 operation=embedding_batch
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.19 operation=ingest_embedding
+2026-01-21 22:08:27 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=179.17 operation=vectordb_add
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=179.29 operation=ingest_storage
+2026-01-21 22:08:27 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=180.29
+2026-01-21 22:08:27 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.23 operation=chunking
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.32 operation=ingest_chunking
+2026-01-21 22:08:27 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.12 operation=embedding_batch
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.22 operation=ingest_embedding
+2026-01-21 22:08:27 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=179.4 operation=vectordb_add
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=179.49 operation=ingest_storage
+2026-01-21 22:08:27 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=180.33
+2026-01-21 22:08:27 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.16 operation=chunking
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.19 operation=ingest_chunking
+2026-01-21 22:08:27 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.05 operation=embedding_batch
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.08 operation=ingest_embedding
+2026-01-21 22:08:27 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=211.96 operation=vectordb_add
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=212.03 operation=ingest_storage
+2026-01-21 22:08:27 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=212.47
+2026-01-21 22:08:27 [debug    ] text_chunked                   chunks=1 input_words=113 strategy=sentence
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.14 operation=chunking
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.18 operation=ingest_chunking
+2026-01-21 22:08:27 [info     ] batch_embedding_completed      cached=1 embedded=0 total=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.04 operation=embedding_batch
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=0.07 operation=ingest_embedding
+2026-01-21 22:08:27 [debug    ] pinecone_vectors_added         count=1
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=323.3 operation=vectordb_add
+2026-01-21 22:08:27 [debug    ] operation_completed            duration_ms=323.45 operation=ingest_storage
+2026-01-21 22:08:27 [info     ] memory_ingested                chunks=1 source=benchmark total_ms=323.87
+Full Ingest Pipeline:
+  Iterations: 10
+  Min: 157.55ms
+  Max: 323.99ms
+  Mean: 198.41ms
+  Median: 185.99ms
+  P95: 273.83ms
+  P99: 313.96ms
+
+2026-01-21 22:08:28 [debug    ] embedding_generated            dimensions=1536 text_preview='In what country is Normandy lo'
+2026-01-21 22:08:28 [debug    ] operation_completed            duration_ms=220.05 operation=embedding_single
+2026-01-21 22:08:28 [debug    ] operation_completed            duration_ms=220.21 operation=query_embedding
+2026-01-21 22:08:28 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:28 [debug    ] operation_completed            duration_ms=46.06 operation=vectordb_query
+2026-01-21 22:08:28 [debug    ] operation_completed            duration_ms=46.18 operation=query_search
+2026-01-21 22:08:28 [debug    ] context_assembled              context_length=770 input_memories=5 output_memories=1
+2026-01-21 22:08:28 [debug    ] operation_completed            duration_ms=0.33 operation=context_assembly
+2026-01-21 22:08:28 [debug    ] operation_completed            duration_ms=0.43 operation=query_context
+2026-01-21 22:08:31 [info     ] llm_response_generated         input_tokens=1292 output_tokens=94 query_preview='In what country is Normandy located?' response_length=396
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=3735.33 operation=llm_generate
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=3735.48 operation=query_llm
+2026-01-21 22:08:31 [info     ] query_processed                memories_found=5 total_ms=4002.83
+2026-01-21 22:08:31 [debug    ] embedding_cache_hit            text_preview='In what country is Normandy lo'
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=0.07 operation=embedding_single
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=0.17 operation=query_embedding
+2026-01-21 22:08:31 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=45.48 operation=vectordb_query
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=45.62 operation=query_search
+2026-01-21 22:08:31 [debug    ] context_assembled              context_length=770 input_memories=5 output_memories=1
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=0.37 operation=context_assembly
+2026-01-21 22:08:31 [debug    ] operation_completed            duration_ms=0.49 operation=query_context
+2026-01-21 22:08:35 [info     ] llm_response_generated         input_tokens=1292 output_tokens=94 query_preview='In what country is Normandy located?' response_length=396
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=3259.57 operation=llm_generate
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=3259.75 operation=query_llm
+2026-01-21 22:08:35 [info     ] query_processed                memories_found=5 total_ms=3306.31
+2026-01-21 22:08:35 [debug    ] embedding_cache_hit            text_preview='In what country is Normandy lo'
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=0.09 operation=embedding_single
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=0.16 operation=query_embedding
+2026-01-21 22:08:35 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=32.68 operation=vectordb_query
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=32.76 operation=query_search
+2026-01-21 22:08:35 [debug    ] context_assembled              context_length=770 input_memories=5 output_memories=1
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=0.6 operation=context_assembly
+2026-01-21 22:08:35 [debug    ] operation_completed            duration_ms=1.01 operation=query_context
+2026-01-21 22:08:38 [info     ] llm_response_generated         input_tokens=1292 output_tokens=96 query_preview='In what country is Normandy located?' response_length=406
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=3703.26 operation=llm_generate
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=3703.43 operation=query_llm
+2026-01-21 22:08:38 [info     ] query_processed                memories_found=5 total_ms=3737.57
+2026-01-21 22:08:38 [debug    ] embedding_cache_hit            text_preview='In what country is Normandy lo'
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=0.1 operation=embedding_single
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=0.17 operation=query_embedding
+2026-01-21 22:08:38 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=33.19 operation=vectordb_query
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=33.49 operation=query_search
+2026-01-21 22:08:38 [debug    ] context_assembled              context_length=770 input_memories=5 output_memories=1
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=0.38 operation=context_assembly
+2026-01-21 22:08:38 [debug    ] operation_completed            duration_ms=0.48 operation=query_context
+2026-01-21 22:08:42 [info     ] llm_response_generated         input_tokens=1292 output_tokens=94 query_preview='In what country is Normandy located?' response_length=396
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=3609.63 operation=llm_generate
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=3609.72 operation=query_llm
+2026-01-21 22:08:42 [info     ] query_processed                memories_found=5 total_ms=3644.24
+2026-01-21 22:08:42 [debug    ] embedding_cache_hit            text_preview='In what country is Normandy lo'
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=0.06 operation=embedding_single
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=0.1 operation=query_embedding
+2026-01-21 22:08:42 [debug    ] pinecone_query_completed       results=0 top_k=5
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=28.71 operation=vectordb_query
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=28.82 operation=query_search
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=0.03 operation=context_assembly
+2026-01-21 22:08:42 [debug    ] operation_completed            duration_ms=0.11 operation=query_context
+2026-01-21 22:08:45 [info     ] llm_response_generated         input_tokens=313 output_tokens=77 query_preview='In what country is Normandy located?' response_length=345
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=3203.47 operation=llm_generate
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=3203.64 operation=query_llm
+2026-01-21 22:08:45 [info     ] query_processed                memories_found=0 total_ms=3232.89
+2026-01-21 22:08:45 [debug    ] embedding_cache_hit            text_preview='In what country is Normandy lo'
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=0.26 operation=embedding_single
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=0.56 operation=query_embedding
+2026-01-21 22:08:45 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=29.09 operation=vectordb_query
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=29.18 operation=query_search
+2026-01-21 22:08:45 [debug    ] context_assembled              context_length=770 input_memories=5 output_memories=1
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=0.18 operation=context_assembly
+2026-01-21 22:08:45 [debug    ] operation_completed            duration_ms=0.24 operation=query_context
+2026-01-21 22:08:49 [info     ] llm_response_generated         input_tokens=1292 output_tokens=80 query_preview='In what country is Normandy located?' response_length=329
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=3403.94 operation=llm_generate
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=3404.06 operation=query_llm
+2026-01-21 22:08:49 [info     ] query_processed                memories_found=5 total_ms=3434.42
+2026-01-21 22:08:49 [debug    ] embedding_cache_hit            text_preview='In what country is Normandy lo'
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=0.21 operation=embedding_single
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=0.27 operation=query_embedding
+2026-01-21 22:08:49 [debug    ] pinecone_query_completed       results=5 top_k=5
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=29.82 operation=vectordb_query
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=29.94 operation=query_search
+2026-01-21 22:08:49 [debug    ] context_assembled              context_length=770 input_memories=5 output_memories=1
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=0.29 operation=context_assembly
+2026-01-21 22:08:49 [debug    ] operation_completed            duration_ms=0.35 operation=query_context
+2026-01-21 22:08:52 [info     ] llm_response_generated         input_tokens=1292 output_tokens=94 query_preview='In what country is Normandy located?' response_length=396
+2026-01-21 22:08:52 [debug    ] operation_completed            duration_ms=3367.22 operation=llm_generate
+2026-01-21 22:08:52 [debug    ] operation_completed            duration_ms=3367.33 operation=query_llm
+2026-01-21 22:08:52 [info     ] query_processed                memories_found=5 total_ms=3398.26
+Full Query Pipeline:
+  Iterations: 5
+  Min: 3234.39ms
+  Max: 3737.66ms
+  Mean: 3489.85ms
+  Median: 3434.56ms
+  P95: 3718.99ms
+  P99: 3733.93ms
+
+2026-01-21 22:08:52 [info     ] pinecone_index_cleared
+2026-01-21 22:08:52 [info     ] pinecone_connection_closed
+============================================================
+SUMMARY
+============================================================
+
+Operation                            Mean        P95        P99
+------------------------------------------------------------
+Chunking                            0.5ms      0.6ms      0.6ms
+Embedding (single)                  0.1ms      0.1ms      0.1ms
+Embedding (batch of 5)              0.1ms      0.1ms      0.1ms
+Vector DB Write (5 docs)          238.1ms    276.5ms    281.4ms
+Vector DB Query (top-5)            34.1ms     71.0ms     99.2ms
+LLM Generation                   3105.0ms   3721.8ms   3727.9ms
+Full Ingest Pipeline              198.4ms    273.8ms    314.0ms
+Full Query Pipeline              3489.8ms   3719.0ms   3733.9ms
+
+Latency Budget Check:
+  ✗ Ingest P95: 273.8ms (target: <200ms)
+  ℹ Query+LLM P95: 3719.0ms (LLM adds ~3s)
