@@ -9,7 +9,6 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)](https://fastapi.tiangolo.com)
 [![React 18](https://img.shields.io/badge/React-18+-61dafb.svg)](https://react.dev)
-[![License: ](https://img.shields.io/badge/License--yellow.svg)](https://opensource.org/licenses/)
 
 </div>
 
