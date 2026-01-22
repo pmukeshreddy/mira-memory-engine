@@ -18,7 +18,7 @@ export function MemoryList() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
-  const [isSearching, setIsSearching] = useState(false)
+  const [_isSearching, setIsSearching] = useState(false)
 
   const fetchMemories = useCallback(async () => {
     setIsLoading(true)
