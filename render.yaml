@@ -1,0 +1,37 @@
+# Render Blueprint for Mira Memory Engine Backend
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: mira-backend
+    runtime: python
+    plan: starter  # or 'standard' for production
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: false
+      - key: LOG_LEVEL
+        value: INFO
+      # Required API Keys - set these in Render dashboard
+      - key: DEEPGRAM_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      # Pinecone Configuration
+      - key: VECTOR_DB_PROVIDER
+        value: pinecone
+      - key: PINECONE_ENVIRONMENT
+        value: us-east-1
+      - key: PINECONE_INDEX_NAME
+        value: mira-memories
+      # CORS - Update with your Vercel frontend URL
+      - key: CORS_ORIGINS
+        value: https://your-app.vercel.app
+    healthCheckPath: /api/v1/health

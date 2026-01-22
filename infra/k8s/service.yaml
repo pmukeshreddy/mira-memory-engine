@@ -1,0 +1,247 @@
+# =============================================================================
+# Mira Memory Engine - Kubernetes Services
+# =============================================================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mira-api
+  labels:
+    app: mira
+    component: api
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+  selector:
+    app: mira
+    component: api
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mira-frontend
+  labels:
+    app: mira
+    component: frontend
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: mira
+    component: frontend
+
+---
+# =============================================================================
+# Ingress
+# =============================================================================
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mira-ingress
+  labels:
+    app: mira
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/websocket-services: "mira-api"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - mira.example.com
+      secretName: mira-tls
+  rules:
+    - host: mira.example.com
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: mira-api
+                port:
+                  number: 8000
+          - path: /ws
+            pathType: Prefix
+            backend:
+              service:
+                name: mira-api
+                port:
+                  number: 8000
+          - path: /metrics
+            pathType: Prefix
+            backend:
+              service:
+                name: mira-api
+                port:
+                  number: 8000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mira-frontend
+                port:
+                  number: 80
+
+---
+# =============================================================================
+# Secrets (Template - populate with actual values)
+# =============================================================================
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mira-api-keys
+  labels:
+    app: mira
+type: Opaque
+stringData:
+  DEEPGRAM_API_KEY: "your-deepgram-key"
+  OPENAI_API_KEY: "your-openai-key"
+  ANTHROPIC_API_KEY: "your-anthropic-key"
+
+---
+# =============================================================================
+# Persistent Volume Claim
+# =============================================================================
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mira-data-pvc
+  labels:
+    app: mira
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard
+
+---
+# =============================================================================
+# Service Account
+# =============================================================================
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: mira-api
+  labels:
+    app: mira
+
+---
+# =============================================================================
+# Horizontal Pod Autoscaler
+# =============================================================================
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: mira-api-hpa
+  labels:
+    app: mira
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: mira-api
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Percent
+          value: 10
+          periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+        - type: Percent
+          value: 100
+          periodSeconds: 15
+        - type: Pods
+          value: 4
+          periodSeconds: 15
+      selectPolicy: Max
+
+---
+# =============================================================================
+# Pod Disruption Budget
+# =============================================================================
+
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: mira-api-pdb
+  labels:
+    app: mira
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: mira
+      component: api
+
+---
+# =============================================================================
+# Network Policy
+# =============================================================================
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: mira-api-netpol
+  labels:
+    app: mira
+spec:
+  podSelector:
+    matchLabels:
+      app: mira
+      component: api
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: mira
+              component: frontend
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8000
+  egress:
+    - to: []
+      ports:
+        - protocol: TCP
+          port: 443

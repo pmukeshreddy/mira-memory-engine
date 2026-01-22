@@ -1,0 +1,126 @@
+version: '3.9'
+
+services:
+  # ===========================================================================
+  # Mira Memory Engine - Main Application
+  # ===========================================================================
+  mira-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mira-api
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - DEBUG=false
+      - DEEPGRAM_API_KEY=${DEEPGRAM_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - VECTOR_DB_PROVIDER=chroma
+      - CHROMA_PERSIST_DIR=/app/data/chroma
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    volumes:
+      - mira-data:/app/data
+    depends_on:
+      - otel-collector
+    networks:
+      - mira-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ===========================================================================
+  # Frontend (React)
+  # ===========================================================================
+  mira-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mira-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - mira-api
+    networks:
+      - mira-network
+    restart: unless-stopped
+
+  # ===========================================================================
+  # OpenTelemetry Collector
+  # ===========================================================================
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.92.0
+    container_name: mira-otel
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./infra/otel-collector-config.yaml:/etc/otel-collector-config.yaml:ro
+    ports:
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+      - "8888:8888"   # Prometheus metrics
+    networks:
+      - mira-network
+    restart: unless-stopped
+
+  # ===========================================================================
+  # Prometheus (Metrics)
+  # ===========================================================================
+  prometheus:
+    image: prom/prometheus:v2.49.1
+    container_name: mira-prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./infra/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - mira-network
+    restart: unless-stopped
+
+  # ===========================================================================
+  # Grafana (Visualization)
+  # ===========================================================================
+  grafana:
+    image: grafana/grafana:10.3.1
+    container_name: mira-grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=mira-admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./infra/grafana/provisioning:/etc/grafana/provisioning:ro
+    ports:
+      - "3001:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - mira-network
+    restart: unless-stopped
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  mira-network:
+    driver: bridge
+
+# =============================================================================
+# Volumes
+# =============================================================================
+volumes:
+  mira-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
