@@ -172,7 +172,7 @@ Key configuration options in `.env`:
 | `CHUNK_SIZE` | Words per chunk | `150` |
 | `CHUNK_OVERLAP` | Overlap between chunks | `30` |
 | `RETRIEVAL_TOP_K` | Results to retrieve | `5` |
-| `LLM_MODEL` | Claude model version | `claude-3-5-sonnet-20241022` |
+| `LLM_MODEL` | Claude model version | `claude-sonnet-4-20250514` |
 
 See [env.example](env.example) for all options.
 
