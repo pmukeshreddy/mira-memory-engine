@@ -281,9 +281,6 @@ mira-memory-engine/
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## License
-
-This project is licensed under the  License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
