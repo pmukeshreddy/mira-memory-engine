@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { RefreshCw, Clock, Zap, TrendingUp, Server, Loader2 } from 'lucide-react'
+import { API_BASE } from '../services/api'
 
 interface LatencyMetric {
   operation: string
@@ -53,7 +54,7 @@ export function LatencyMetrics() {
 
   const fetchMetrics = useCallback(async () => {
     try {
-      const response = await fetch('/api/v1/metrics')
+      const response = await fetch(`${API_BASE}/metrics`)
       if (!response.ok) throw new Error('Failed to fetch metrics')
 
       const data = await response.json()

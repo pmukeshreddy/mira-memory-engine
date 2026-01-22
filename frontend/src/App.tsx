@@ -7,6 +7,7 @@ import { LatencyMetrics } from './components/LatencyMetrics'
 import { MemoryList } from './components/MemoryList'
 import { TextIngest } from './components/TextIngest'
 import { Brain, Waves, MessageSquare, Activity } from 'lucide-react'
+import { API_BASE } from './services/api'
 
 type Tab = 'record' | 'query' | 'memories' | 'metrics'
 
@@ -61,7 +62,7 @@ function App() {
     setCurrentResponse(null)
 
     try {
-      const response = await fetch('/api/v1/memory/query', {
+      const response = await fetch(`${API_BASE}/memory/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

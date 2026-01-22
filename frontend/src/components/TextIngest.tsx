@@ -1,5 +1,6 @@
 import { useState, useCallback, FormEvent } from 'react'
 import { Send, Loader2, FileText, Check } from 'lucide-react'
+import { API_BASE } from '../services/api'
 
 interface TextIngestProps {
   onIngested?: (chunks: number) => void
@@ -20,7 +21,7 @@ export function TextIngest({ onIngested }: TextIngestProps) {
     setSuccess(null)
 
     try {
-      const response = await fetch('/api/v1/memory/ingest', {
+      const response = await fetch(`${API_BASE}/memory/ingest`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

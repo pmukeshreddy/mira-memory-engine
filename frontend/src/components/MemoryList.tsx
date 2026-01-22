@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Trash2, RefreshCw, Search, Calendar, Loader2, AlertCircle, Database } from 'lucide-react'
+import { API_BASE } from '../services/api'
 
 interface Memory {
   id: string
@@ -25,7 +26,7 @@ export function MemoryList() {
     setError(null)
 
     try {
-      const response = await fetch('/api/v1/memory/recent?limit=50')
+      const response = await fetch(`${API_BASE}/memory/recent?limit=50`)
       if (!response.ok) throw new Error('Failed to fetch memories')
 
       const data = await response.json()
@@ -49,7 +50,7 @@ export function MemoryList() {
 
     try {
       const response = await fetch(
-        `/api/v1/memory/search?query=${encodeURIComponent(searchQuery)}&top_k=20`,
+        `${API_BASE}/memory/search?query=${encodeURIComponent(searchQuery)}&top_k=20`,
         { method: 'POST' }
       )
       if (!response.ok) throw new Error('Search failed')
@@ -69,7 +70,7 @@ export function MemoryList() {
     }
 
     try {
-      const response = await fetch('/api/v1/memory/clear', { method: 'DELETE' })
+      const response = await fetch(`${API_BASE}/memory/clear`, { method: 'DELETE' })
       if (!response.ok) throw new Error('Failed to clear memories')
 
       setMemories([])
